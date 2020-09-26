@@ -28,7 +28,16 @@ app.set('views', 'views');
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/public',express.static('public'))
+
+
+//Setting Database
+
+MONGO_URI='mongodb+srv://harshit:zytiga221@mysite.podit.mongodb.net/mysites?retryWrites=true&w=majority'
+
+
+
 // Setting Other Veriables
+
 
 
 // Setting Routes
