@@ -1,0 +1,24 @@
+#search{
+    width: 100%;
+    padding: .275rem 0.75rem;
+}
+.text-nav{
+    color: #dae0e5 !important;
+}
+.active{
+    font-size: 1.1rem;
+    color: white !important;
+    /* margin-top: 2px; */
+    justify-items: center;
+    align-items: center;
+}
+
+nav{
+    /* background-color: blue !important; */
+    height: 4rem;
+}
+
+
+footer{
+    height:2rem;
+}
