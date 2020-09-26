@@ -32,7 +32,7 @@ app.use('/public',express.static('public'))
 
 //Setting Database
 
-MONGO_URI='mongodb+srv://harshit:zytiga221@mysite.podit.mongodb.net/mysites?retryWrites=true&w=majority'
+MONGO_URI='mongodb+srv://harshit:p@mysite.podit.mongodb.net/mysites?retryWrites=true&w=majority'
 
 
 
