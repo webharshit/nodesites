@@ -1,0 +1,54 @@
+.main{
+    height: 350px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mainhead{
+    margin-bottom: 8rem;
+}
+
+.bg-pic{
+    background-image: url(../pics/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+
+}
+
+
+.sitesdiv{
+    background-color: gray;
+    height: 100px;
+
+}
+
+
+.centered{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+
+}
+.registerbtn{
+    margin: 1rem !important;
+}
+
+
+
+.registerpage{
+    height: 600px !important;
+}
+
+
+label{
+    margin-top: 5px;
+}
+
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }

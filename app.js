@@ -7,7 +7,9 @@ const express = require('express'),
     MongoDbStore = require('connect-mongodb-session')(session),
     bodyParser = require('body-parser'),
     dotenv = require('dotenv');
-// session = require('express-session');
+
+
+
 dotenv.config({ path: './config.env' });
 const usermodel = require('./models/user')
 const sitemodel = require('./models/site')
@@ -31,11 +33,11 @@ app.use(bodyParser.urlencoded({
 app.use('/public', express.static('public'))
 //Setting Hendler Of Site
 
-const user=usermodel.create({
-    email:'web.harshit@gmail.com',
-    password: 'abcd',
-    mobileno: '9896894671'
-})
+// const user=usermodel.create({
+//     email:'web.harshit@gmail.com',
+//     password: 'abcd',
+//     mobileno: '9896894671'
+// })
 // //Setting Database
 // app.use(
 //     session({
@@ -93,6 +95,6 @@ mongoose
         useFindAndModify: true
     })
     .then(result => {
-        app.listen(80)
+        app.listen(process.env.PORT)
     })
     .catch(err => console.log(err))

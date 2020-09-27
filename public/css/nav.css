@@ -1,3 +1,7 @@
+*{
+    font-family: 'Lobster', cursive;
+
+}
 #search{
     width: 100%;
     padding: .275rem 0.75rem;
@@ -21,4 +25,17 @@ nav{
 
 footer{
     height:2rem;
+}
+#errMsg{
+    font-size: 1rem !important;
+    width: 20%;
+}
+
+
+.w-100{
+    width: 100%;
+    
+}
+.h-100{
+    height: 100%;
 }

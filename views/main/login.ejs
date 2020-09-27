@@ -1,0 +1,17 @@
+<%- include('../includes/head')%>
+
+</head>
+<body>
+<%- include('../includes/nav')%>
+    <div class="container main text-info registerpage">
+        <form class='centered' action="/login" method="post">
+            <label for="email">Enter Your Email</label>
+            <input type="email" name="email" id='email'>
+            <label for="confirmPassword">Password</label>
+            <input type="password" name="password" id="password">
+            <button type="submit" class="registerbtn btn bg-info">Log In</button>
+        </form>
+        <a href="/register">Sign Up</a>
+    </div>
+<%- include('../includes/footer')%>
+<%- include('../includes/end')%>
