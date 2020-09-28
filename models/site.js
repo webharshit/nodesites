@@ -18,7 +18,7 @@ const siteSchema = new Schema({
     userid:{
         type:Schema.Types.ObjectId,
         ref: 'User',
-        required:true
+        // required:true
 
     }
 })

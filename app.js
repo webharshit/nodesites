@@ -14,16 +14,9 @@ dotenv.config({ path: './config.env' });
 const usermodel = require('./models/user')
 const sitemodel = require('./models/site')
 
-
-
-// Importing Other Modules
 MONGO_URI = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD)
 const app = express()
 
-// const store = new MongoDbStore({
-//     uri: MONGO_URI,
-//     collection: 'mysite'
-// })
 app.set('views', 'views');
 
 app.set('view engine', 'ejs');
@@ -33,10 +26,10 @@ app.use(bodyParser.urlencoded({
 app.use('/public', express.static('public'))
 //Setting Hendler Of Site
 
-// const user=usermodel.create({
-//     email:'web.harshit@gmail.com',
-//     password: 'abcd',
-//     mobileno: '9896894671'
+// const site=sitemodel.create({
+//     title:'web.harshit@gmail.com',
+//     discription: 'abcd',
+//     link: '9896894671'
 // })
 // //Setting Database
 // app.use(

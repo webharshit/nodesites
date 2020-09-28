@@ -16,11 +16,15 @@
 
         </div>
     </div>
+   <% if(sitelist!=undefined){%>
+    <h2><%=sitelist%></h2>
+    <%}else{%>
     <div class="container centered sitesdiv">
         <h1 class="massage">
             No Site Added
         </h1>
 
     </div>
+    <%}%>
     <%- include('../includes/footer')%>
     <%- include('../includes/end')%>
