@@ -1,5 +1,7 @@
+//IMPORTING MONGOOSE
 const mongoose = require("mongoose");
 
+// CREATING SCHEMA
 const Schema = mongoose.Schema;
 
 const siteSchema = new Schema({
@@ -22,4 +24,5 @@ const siteSchema = new Schema({
   },
 });
 
+//EXPORTING SCHEMA
 module.exports = mongoose.model("Site", siteSchema);

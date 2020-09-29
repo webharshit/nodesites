@@ -1,6 +1,9 @@
+//IMPORTIN MODELS
 const user = require("../models/user");
+
 const sites = require("../models/site");
 
+// SETTING USERS CONTROLLER
 exports.getusers = async (req, res) => {
   try {
     const users = await user.find();

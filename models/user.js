@@ -1,5 +1,7 @@
+//INPORTING MONGOOSE
 const mongoose = require("mongoose");
 
+// CREATING SCHEMA
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -29,17 +31,5 @@ const userSchema = new Schema({
   },
 });
 
-userSchema.methods.addSite = () => {
-  const siteid = this.sites.site.findIndex((site) => {
-    return site.siteid.toString() === site._id.toString();
-  });
-  return this.save();
-};
-
-userSchema.methods.removesite = (siteid) => {
-  const updateUserSite = this.sites.site.filter((site) => {
-    return this.siteid.toString !== siteid.toString();
-  });
-};
-
+//EXPORTING SCHEMA
 module.exports = mongoose.model("User", userSchema);
