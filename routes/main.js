@@ -5,29 +5,13 @@ const express = require('express'),
 
 const router = express.Router();
 const usermodel = require('../models/user')
-const sitemodel = require('../models/site')
-let siteslist
+const sitemodel = require('../models/site');
 
-function sites(){
-    sitemodel.find().then(site=>{
-        if (site.length>0){
-            siteslist=site
-            // return siteslist
-        }else{
-            siteslist=undefined
-        }
-        return siteslist
-    }).catch(err=>console.log(err))
-    // console.log(sl)
-    // sl.resolve()
-}
-router.get('/', (req, res) => {
-    sites()
-    console.log(siteslist)
+const maincont=require('../controller/main')
+router.get('/',(req, res) => {
     res.render('main/home', {
         title: 'Home',
-        path: 'home',
-        sitelist: siteslist
+        path: 'home'
     });
 })
 router.get('/contact', (req, res) => {
@@ -40,28 +24,43 @@ router.get('/register', (req, res) => {
     res.render('main/register', {
         title: 'Register',
         path: 'register'
+        
     });
 })
-router.post('/register', (req, res, next) => {
-    const email = req.body.email,
-        password = req.body.password,
-        mobile = req.body.mobile
-    const user = usermodel.create({
-        email: email,
-        password: password,
-        mobileno: mobile
-    })
-    console.log(req.body.email)
-    console.log('email')
-
-    res.redirect('/login')
-});
+router.post('/register', maincont.getusers);
 
 router.get('/login', (req, res) => {
+
     res.render('main/login', {
         title: 'Login',
-        path: 'login'
+        path: 'login',
+        err: err
     });
 })
+router.post('/login', (req, res) => {
+    let loginerr;
+    users()
+    console.log(userlist)
+    userlist.forEach(user => {
+        console.log(user)
+        if (user.email == req.body.email) {
+            if (user.password == req.body.password) {
+                
+            } else {
+                loginerr = 'Password Not Match'
+                console.log(loginerr)
+            }
+            return err=loginerr
+        }
+    })
+    if (loginerr != undefined) {
+        res.redirect('/login')
+
+    } else {
+
+        res.redirect('/');
+    }
+
+});
 
 module.exports = router
