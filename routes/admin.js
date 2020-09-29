@@ -1,10 +1,9 @@
-const express = require('express');
+const express = require("express");
 
-const router= express.Router();
+const router = express.Router();
 
-router.get('/admin',(req,res,next){
-    res.send('Error')
-})
+router.get("/admin", (req, res, next) => {
+  res.send("Error");
+});
 
-
-module.exports=router
+module.exports = router;
