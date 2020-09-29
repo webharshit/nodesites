@@ -18,6 +18,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  createdon:{
+    type: Date,
+    required:true,
+    default: new Date()
+  },
   sites: {
     site: [
       {

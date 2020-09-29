@@ -28,28 +28,5 @@
             </form>
             
     </div>
-    <% if(sitelist!=undefined){%>
-        <div class="container d-flex align-items-center justify-content-center flex-wrap" style="margin-bottom: 3rem;">
-            <%sitelist.forEach(site=>{%>
-                <div class="card my-2 mx-2" style="width: 22rem;">
-                    <div class="card-body">
-                      <h5 class="card-title"><%=site.title%></h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                      <p class="card-text"><%=site.discription%></p>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
-                  </div>
-            <%})%>
-    </div>
-
-    <%}else{%>
-    <div class="container centered sitesdiv">
-        <h1 class="massage">
-            No Site Added
-        </h1>
-
-    </div>
-    <%}%>
     <%- include('../includes/footer')%>
     <%- include('../includes/end')%>

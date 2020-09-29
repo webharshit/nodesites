@@ -1,31 +1,31 @@
 //Importing Node Modules
-const express = require("express"),
-  ejs = require("ejs"),
-  mongodb = require("mongodb"),
-  mongoose = require("mongoose"),
-  session = require("express-session"),
-  MongoDbStore = require("connect-mongodb-session")(session),
-  bodyParser = require("body-parser"),
-  dotenv = require("dotenv");
-
+const express = require('express'),
+  ejs = require('ejs'),
+  mongodb = require('mongodb'),
+  mongoose = require('mongoose'),
+  session = require('express-session'),
+  MongoDbStore = require('connect-mongodb-session')(session),
+  bodyParser = require('body-parser'),
+  dotenv = require('dotenv'),
+  morgan= require('morgan')
 // CONFIGRING ENVIREMENT
-dotenv.config({ path: "./config.env" });
+dotenv.config({ path: './config.env' });
 
 MONGO_URI = process.env.DATABASE.replace(
-  "<PASSWORD>",
+  '<PASSWORD>',
   process.env.DATABASE_PASSWORD
 );
 
 // INPORTING OWN MODELS
-const usermodel = require("./models/user");
-const sitemodel = require("./models/site");
+const usermodel = require('./models/user');
+const sitemodel = require('./models/site');
 
 // STARTING APP
 const app = express();
 
 // SETING HEADERS
-app.set("views", "views");
-app.set("view engine", "ejs");
+app.set('views', 'views');
+app.set('view engine', 'ejs');
 
 // SETTING BODYPARSER
 app.use(
@@ -34,17 +34,25 @@ app.use(
   })
 );
 
+app.use(morgan('dev'))
+
+//for Paging
+//query.skip().limit()
 //SETING PUBLIC FOLDER
-app.use("/public", express.static("public"));
+app.use('/public', express.static('public'));
 
 // Setting Routes
 
 // IMPORTING ROUTES
-const mainroute = require("./routes/main.js");
-const adminroute = require("./routes/admin.js");
-const route404 = require("./routes/404.js");
+const mainroute = require('./routes/main.js');
+const adminroute = require('./routes/admin.js');
+const route404 = require('./routes/404.js');
+const morgan = require('morgan');
+const { query } = require('express');
 
 //SETTING ROUTES
+// app.route().get().post().patch().put().delete();
+
 app.use(mainroute);
 app.use(adminroute);
 app.use(route404);
