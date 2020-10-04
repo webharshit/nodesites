@@ -1,22 +1,55 @@
 *{
     font-family: 'Lobster', cursive;
+    margin: 0;
+    padding: 0;
+}
 
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+body{
+    /* background: skyblue; */
+    background-image: url('/public/pics/autumn-5092804.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed ;
+    
+    
 }
 #search{
+    margin: auto;
     width: 100%;
     padding: .275rem 0.75rem;
 }
-.text-nav{
-    color: #dae0e5 !important;
+
+.text-nav:hover{
+    border-top: 4px solid green;
 }
 .active{
-    font-size: 1.1rem;
-    color: white !important;
-    /* margin-top: 2px; */
-    justify-items: center;
+    border-top: 4px solid green ;
+}
+nav{
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
-
+.navbar-nav li{
+   margin: 3rem;
+}
 nav{
     /* background-color: blue !important; */
     height: 4rem;

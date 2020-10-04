@@ -9,6 +9,15 @@ const siteSchema = new Schema({
     type: String,
     required: true,
   },
+  subtitle:{
+    type:String,
+    required:true
+  },
+  createdon:{
+    type:Date,
+    required:true,
+    default:Date.now()
+  },
   discription: {
     type: String,
     required: true,
@@ -17,12 +26,15 @@ const siteSchema = new Schema({
     type: String,
     required: true,
   },
-  userid: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-    // required:true
+  userid:{
+    type: String,
+    required:true
   },
+  lastUpdatedon:{
+    type:Date
+  }
+
 });
 
 //EXPORTING SCHEMA
-module.exports = mongoose.model("Site", siteSchema);
+module.exports = mongoose.model("site", siteSchema);

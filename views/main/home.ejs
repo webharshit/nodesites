@@ -1,32 +1,86 @@
 <%- include('../includes/head')%>
-<link rel="stylesheet" href="../../public/css/home.css">
+ <link rel="stylesheet" href="../../public/css/home.css">
 </head>
+<body class='text-capitalize d-flex text-align-center justify-content-center align-items-center'>
+        <div class="page"> 
+            <%- include('../includes/nav')%>
+             <section style="height: 13rem;" id='mainsectin' class="h-auto d-flex flex-column justify-content-center align-items-center">
+                <h1 class="text-center ">
+                    Welcome to My Site 
+                </h1>
+                <h3 class='text-center'>
+                    View All Sites By Me
+                </h3>
+            </section>
+            <%if (success==''&& err==''){%>
+                <section style="height: 5rem;" id='errorsuccess'> 
+            <%}else{%>
+                            <div class="  alert alert-dismissible  text-capitalize show <%=(success!='')? 'alert-success': 'alert-warning'%>"
+                                role="alert">
+                                <strong>Massage!</strong>
+                                <%=success+err%>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </section>
+                            <%}%>
+<section id='addSiteSection'class=''>        
+    <%if(isauth){%>
+                            <form action="/addSite" method="post"
+                                class='d-flex w-auto flex-column align-items-center justify-content-center'>
+                                <label for="title">Enter Title </label>
+                                <input class='form-control  mr-sm-2' type="text" placeholder="Title" name="title"
+                                    id="title">
+                                <label for="title">Enter Subtitle </label>
+                                <input class='form-control  mr-sm-2' type="text" placeholder="Subtitle" name="subtitle"
+                                    id="subtitle">
+                                <label for="discription">Enter Discription</label>
+                                <input class='form-control  mr-sm-2' type="text" name="discription"
+                                    placeholder="Discription" id="discription">
+                                <label for="link">Enter Link</label>
+                                <input class='form-control  mr-sm-2' type="text" name="link" placeholder='Link'
+                                    id="link">
+                                <input type="hidden" name="_csrf" value='<%=csrfToken%>'>
+                                <input type="hidden" name="userid" value='<%=user._id.toString()%>'>
+                                <button class='bg-info my-2' type="submit">Add Card</button>
+                            </form>
+                            <%}%>
+</section>
+<section class="mb-5" id="sites">
 
-<body>
-    <%- include('../includes/nav')%>
-    <div class="container main bg-pic">
-        <div class="main mainhead">
-            <h1>
-                Welcome to My Site
-    
-            </h1>
-            <h3 class='maintitle'>
-                View All Sites By Me
-            </h3>
+    <%if (sites.length==0){%>
+                            <div class="text-center ">
+                                <h1>No Sites Added Yet </h1>
+                            </div>
 
+                            <%}else{%>
+                            <div class="  d-flex  text-capitalize align-items-center justify-content-center flex-wrap">
+                                <%sites.forEach(site=>{%>
+                                <div class="card mx-2 my-3" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%=site.title%></h5>
+                                        <h6 class="card-subtitle mb-2 text-muted"><%=site.subtitle%></h6>
+                                        <p class="card-text"><%=site.discription%></p>
+                                        <a href="<%site.link%>" class=" btn btn-info card-link">Visit Site</a>
+                                        <p class="card-link"></p>
+
+                                        <%if(isauth){if(site.userid== user._id.toString()){%>
+                                        <a href="/edit/<%=site._id%>" class=" btn btn-info card-link">Edit Site</a>
+                                        <a href="/delete/<%=site._id%>" class=" btn btn-info card-link">Delete Site</a>
+
+                                        <%}}%>
+                                        <div class="card-footer">
+                                            <small
+                                                class="text-muted"><%=`${site.createdon.toString().split('GMT')[0].split(' ')[2]}-${site.createdon.toString().split('GMT')[0].split(' ')[1]}-${site.createdon.toString().split('GMT')[0].split(' ')[3]}`%></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%})%>
+                            </div>
+
+                            <%}%>
         </div>
-    </div>
-        <div class="container card d-flex flex-row align-items-center justify-content-center" style="margin-bottom: 3rem;">
-            <form action="/addSite" method="post"class='d-flex flex-column align-items-center justify-content-center'>
-                <label for="title">Enter Title </label>
-                <input class='form-control  mr-sm-2' type="text" placeholder="Email" name="title" id="title">
-                <label for="discription">Enter Discription</label>
-                <input class='form-control  mr-sm-2' type="text" name="discription" placeholder="Discription" id="discription">
-                <label for="link">Enter Link</label>
-                <input class='form-control  mr-sm-2' type="text" name="link" placeholder='Link' id="link">
-                <button class='bg-info my-2' type="submit">Add Card</button>
-            </form>
-            
-    </div>
-    <%- include('../includes/footer')%>
-    <%- include('../includes/end')%>
+    </section>
+        <%- include('../includes/footer')%>
+                            <%- include('../includes/end')%>

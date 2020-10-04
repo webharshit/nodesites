@@ -10,9 +10,21 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
+  role:{
+    type:String,
+    enum:['user','admin'],
+    default:'user'
+  },
   password: {
     type: String,
     required: true,
+  },
+  confirmpassword:{
+    type: String,
+    required: true
+  },
+  passwordchangedat:{
+    type: Date
   },
   mobileno: {
     type: String,
@@ -29,9 +41,10 @@ const userSchema = new Schema({
         siteid: {
           type: Schema.Types.ObjectId,
           ref: "Sites",
-          required: true,
+          // required: true,
         },
-      },
+        // ref: sites
+      }
     ],
   },
 });

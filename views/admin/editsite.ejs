@@ -1,0 +1,22 @@
+<%- include('../includes/head')%>
+</head>
+<body>
+
+    <%- include('../includes/nav')%>
+
+    <div class=" bg-info card d-flex flex-row align-items-center justify-content-center" style="margin-top: 10rem;">
+        <form action="/edit" method="post"class='d-flex flex-column align-items-center justify-content-center'>
+            <label for="title">Enter Title </label>
+            <input class='form-control  mr-sm-2' type="text" placeholder="Title" name="title" value='<%=site.title%>' id="title">
+            <label for="title">Enter Subtitle </label>
+            <input class='form-control  mr-sm-2' type="text" placeholder="Subtitle" value='<%=site.subtitle%>' name="subtitle" id="subtitle">
+            <label for="discription">Enter Discription</label>
+            <input class='form-control  mr-sm-2' type="text" name="discription" value='<%=site.discription%>' placeholder="Discription" id="discription">
+            <label for="link">Enter Link</label>
+            <input class='form-control  mr-sm-2' type="text" name="link" value='<%=site.link%>' placeholder='Link' id="link">
+            <input type="hidden" name="_csrf" value='<%=csrfToken%>'>
+            <input type="hidden" name="userid" value='<%=user._id.toString()%>'>
+            <button class='bg-info my-2' type="submit">Save Site</button>
+        </form>
+    <%- include('../includes/footer')%>
+    <%- include('../includes/end')%>

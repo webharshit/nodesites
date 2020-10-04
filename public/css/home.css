@@ -8,6 +8,10 @@
 .mainhead{
     margin-bottom: 8rem;
 }
+.page{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
 
 .bg-pic{
     background-image: url(../pics/bg.jpg);
