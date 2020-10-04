@@ -118,6 +118,7 @@ exports.postEdit= async(req,res,next)=>{
             lastUpdatedon: Date.now()
         })
         req.session.editid= null
+        await req.session.save()
         res.redirect('/')
 
     }catch(err){
@@ -131,6 +132,9 @@ exports.getdelete= async (req,res,next)=>{
     try{
         await sites.findOneAndDelete({_id: mongodb.ObjectId(req.session.siteid)})
         res.redirect('/')
+        await req.session.save()
+        res.redirect('/')
+
     }catch(err){
         console.log(err)
     }
